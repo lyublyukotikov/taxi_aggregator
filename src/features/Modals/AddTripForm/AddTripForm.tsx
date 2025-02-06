@@ -53,95 +53,94 @@ const AddTripForm: React.FC<RegionSelectionModalProps> = ({
 
         {!isRegionsLoading && !regionsError && (
           <Formik
-            initialValues={{ region: "", from: "", to: "", tariff: "Эконом" }}
-            validationSchema={tripValidationSchema}
-            onSubmit={handleSubmit}
-          >
-            {({ setFieldValue, values }) => (
-              <Form className={styles.form}>
-                <div className={styles.formGroup}>
-                  <label htmlFor="region">Регион</label>
-                  <CustomSelect
-                    id="region"
-                    value={values.region}
-                    onChange={(e) => setFieldValue("region", e.target.value)}
-                    options={[
-                      { value: "", label: "Выберите регион" },
-                      ...regionOptions,
-                    ]}
-                    label={""}
-                    style={{ gap: "0px" }}
-                  />
-                  <ErrorMessage
-                    name="region"
-                    component="p"
-                    className={styles.error}
-                  />
-                </div>
+  initialValues={{ region: "", from: "", to: "", tariff: "Эконом" }}
+  validationSchema={tripValidationSchema}
+  onSubmit={handleSubmit}
+>
+  {({ setFieldValue, values, touched, errors }) => (
+    <Form className={styles.form}>
+      <div className={styles.formGroup}>
+        <label htmlFor="region">Регион</label>
+        <CustomSelect
+          id="region"
+          value={values.region}
+          onChange={(e) => setFieldValue("region", e.target.value)}
+          options={[
+            { value: "", label: "Выберите регион" },
+            ...regionOptions,
+          ]}
+          label={""}
+          style={{ gap: "0px" }}
+        />
+        <ErrorMessage
+          name="region"
+          component="p"
+          className={styles.error}
+        />
+      </div>
 
-                <div className={styles.formGroup}>
-                  <label htmlFor="tariff">Тариф</label>
-                  <CustomSelect
-                    id="tariff"
-                    value={values.tariff}
-                    onChange={(e) => setFieldValue("tariff", e.target.value)}
-                    options={[
-                      { value: "", label: "Выберите тариф" },
-                      { value: "Эконом", label: "Эконом" },
-                      { value: "Комфорт", label: "Комфорт" },
-                      { value: "Бизнес", label: "Бизнес" },
-                    ]}
-                    label={""}
-                    style={{ gap: "0px" }}
-                  />
-                  <ErrorMessage
-                    name="tariff"
-                    component="p"
-                    className={styles.error}
-                  />
-                </div>
+      <div className={styles.formGroup}>
+        <label htmlFor="tariff">Тариф</label>
+        <CustomSelect
+          id="tariff"
+          value={values.tariff}
+          onChange={(e) => setFieldValue("tariff", e.target.value)}
+          options={[
+            { value: "", label: "Выберите тариф" },
+            { value: "Эконом", label: "Эконом" },
+            { value: "Комфорт", label: "Комфорт" },
+            { value: "Бизнес", label: "Бизнес" },
+          ]}
+          label={""}
+          style={{ gap: "0px" }}
+        />
+        <ErrorMessage
+          name="tariff"
+          component="p"
+          className={styles.error}
+        />
+      </div>
 
-                <div className={styles.formGroup}>
-                  <label htmlFor="from">Откуда</label>
-                  <Field
-                    component={AddressInput}
-                    id="from"
-                    name="from"
-                    placeholder="Адрес отправления"
-                    region={values.region} // Передаем выбранный регион
-                    setFieldValue={setFieldValue} // Передаем setFieldValue
-                  />
-                  <ErrorMessage
-                    name="from"
-                    component="p"
-                    className={styles.error}
-                  />
-                </div>
+      <div className={styles.formGroup}>
+        <label htmlFor="from">Откуда</label>
+        <Field
+          component={AddressInput}
+          id="from"
+          name="from"
+          placeholder="Адрес отправления"
+          region={values.region} // Передаем выбранный регион
+          setFieldValue={setFieldValue} // Передаем setFieldValue
+        />
+        {/* Не показывать ошибку, если поле не было затронуто или если пользователь ввел адрес */}
+        {touched.from && errors.from && !values.from && (
+          <ErrorMessage name="from" component="p" className={styles.error} />
+        )}
+      </div>
 
-                <div className={styles.formGroup}>
-                  <label htmlFor="to">Куда</label>
-                  <Field
-                    component={AddressInput}
-                    id="to"
-                    name="to"
-                    placeholder="Адрес назначения"
-                    region={values.region} // Передаем выбранный регион
-                    setFieldValue={setFieldValue} // Передаем setFieldValue
-                  />
-                  <ErrorMessage
-                    name="to"
-                    component="p"
-                    className={styles.error}
-                  />
-                </div>
+      <div className={styles.formGroup}>
+        <label htmlFor="to">Куда</label>
+        <Field
+          component={AddressInput}
+          id="to"
+          name="to"
+          placeholder="Адрес назначения"
+          region={values.region} // Передаем выбранный регион
+          setFieldValue={setFieldValue} // Передаем setFieldValue
+        />
+        {/* Не показывать ошибку, если поле не было затронуто или если пользователь ввел адрес */}
+        {touched.to && errors.to && !values.to && (
+          <ErrorMessage name="to" component="p" className={styles.error} />
+        )}
+      </div>
 
-                <div className={styles.formActions}>
-                  <DynamicButton label={"Добавить"} type="submit" />
-                  <DynamicButton label="Отменить" onClick={closeModalWindow} />
-                </div>
-              </Form>
-            )}
-          </Formik>
+      <div className={styles.formActions}>
+        <DynamicButton label={"Добавить"} type="submit" />
+        <DynamicButton label="Отменить" onClick={closeModalWindow} />
+      </div>
+    </Form>
+  )}
+</Formik>
+
         )}
 
         {tripError && <ErrorDisplay message="Ошибка при добавлении поездки" />}

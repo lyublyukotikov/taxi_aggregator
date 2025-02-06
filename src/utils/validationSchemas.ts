@@ -1,12 +1,12 @@
-import * as Yup from "yup";
+import * as Yup from 'yup';
 
-export const tripValidationSchema = Yup.object().shape({
-  region: Yup.string().required("Регион обязателен"),
+export const tripValidationSchema = Yup.object({
+  region: Yup.string().required('Регион обязателен'),
   from: Yup.string()
-    .max(200, "Максимальная длина 200 символов")
-    .required("Адрес отправления обязателен"),
+    .required('Адрес отправления обязателен')
+    .min(3, 'Адрес отправления должен быть не менее 3 символов'),
   to: Yup.string()
-    .max(200, "Максимальная длина 200 символов")
-    .required("Адрес назначения обязателен"),
-  tariff: Yup.string().required("Тариф обязателен"),
+    .required('Адрес назначения обязателен')
+    .min(3, 'Адрес назначения должен быть не менее 3 символов'),
+  tariff: Yup.string().required('Выберите тариф'),
 });
