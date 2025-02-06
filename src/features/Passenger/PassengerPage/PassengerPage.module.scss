@@ -1,0 +1,92 @@
+.passengerPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  overflow: hidden;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.tripList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 15px;
+  width: 100%;
+  max-width: 1000px;
+  padding-bottom: 20px;
+  max-height: 70vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #2575fc #f0f0f0;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #2575fc;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #1e63d1;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+  }
+}
+
+.paginationContainer {
+  margin-top: auto;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .tripList {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+
+  .tripList {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .addButton {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: 1.5rem;
+  }
+
+  .tripList {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .addButton {
+    padding: 10px 22px;
+    font-size: 0.85rem;
+  }
+}

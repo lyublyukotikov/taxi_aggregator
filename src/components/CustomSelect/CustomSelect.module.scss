@@ -1,0 +1,32 @@
+.itemsPerPageSelector {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  animation: fadeIn 1s ease-in-out;
+
+  label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+  }
+
+  select {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    option {
+      color: #000;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+  }
+}

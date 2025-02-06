@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  padding: 10px 20px;
+
+  h2 {
+    font-size: 2rem;
+    margin: 0;
+    animation: slideIn 0.5s ease-in-out;
+  }
+}
+
+.addButton {
+  background: none;
+  color: white;
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 14px 26px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: scale(1.05);
+    border-color: white;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

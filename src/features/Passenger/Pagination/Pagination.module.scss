@@ -1,0 +1,31 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 20px 0;
+  gap: 8px;
+
+  li {
+    a {
+      padding: 12px 16px;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      color: white;
+      background-color: rgba(255, 255, 255, 0.15);
+      font-weight: 500;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        border-color: white;
+      }
+    }
+
+    &.active a {
+      border-color: white;
+      color: white;
+      font-weight: bold;
+    }
+  }
+}

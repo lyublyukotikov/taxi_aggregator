@@ -1,0 +1,194 @@
+.homePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.content {
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.image {
+  width: 150px;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  animation: driveIn 2s ease-in-out forwards;
+}
+
+.roleSelection {
+  margin-top: 20px;
+}
+
+.roleTitle {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes driveIn {
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border: 2px solid white;
+  border-radius: 25px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.passengerButton, .driverButton {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+
+.secondaryButton {
+  background: #f1f1f1;
+  color: #333;
+
+  &:hover {
+    background: #e0e0e0;
+  }
+}
+
+.outlinedButton {
+  background: transparent;
+  border: 2px solid #2196f3;
+  color: #2196f3;
+
+  &:hover {
+    background: #2196f3;
+    color: white;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .image {
+    width: 120px;
+  }
+
+  .content {
+    padding: 20px;
+    max-width: 500px;
+  }
+
+  .buttonsContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .image {
+    width: 100px;
+  }
+
+  .content {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .buttonsContainer {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
